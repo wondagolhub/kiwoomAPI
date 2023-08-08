@@ -1,0 +1,44 @@
+# 주석처리 : 'Ctrl + /'
+# 코드 자동 정렬 : Ctrl + Alt + L
+# 키보드 커서가 어디에 있던, 키보드 커서를 바로 다음 줄로 이동시키기 : Shift + Enter
+# 다중 키보드 커서 연속으로 생성 :  Shift + Alt + 마우스 드래그
+# 하이라이트 표시된 에러 문장으로 바로 이동 : F2
+
+OpenAPI 컨트롤 : 키움증권의 OpenAPI는 OCX (OLE custom controls) 방식
+OCX가 설치가되면 windows registry, 레지스트리에 등록 = CLSID : A1574A0D-6BFA-4BD7-9020-DED88711818D
+KHOPENAPI.KHOpenAPICtrl.1은 GUID (전역 고유 식별자)= ProgID
+QAxWidget class를 이용해 ProgID나 CLSID를 전달
+- QAxWidget("KHOPENAPI.KHOpenAPICtrl.1")
+- QAxWidget("A1574A0D-6BFA-4BD7-9020-DED88711818D")
+- self.setControl("KHOPENAPI.KHOpenAPICtrl.1")
+
+
+main.py - Main class 생성
+ui.py - UI 및 EventLoop
+kiwoom.py - Kiwoom class 생성
+
+
+[Error 1] Attribute  Error : 'Kiwoom' object has no attribute 'OnEventConnect' => 파이썬 가상환경을 다시 만듬
+
+[아나콘다 가상환경 설정]
+1. set CONDA_FORCE_32BIT=1 , conda info(32bit 확인)  # 아나콘다를 64비트->32비트로 변경(증권사 API가 32비트이므로 가상환경을 32비트로 만듬)
+conda create --name <가상환경이름:py38_32>  python=3.8.5
+conda activate <가상환경이름:py38_32>
+(py38_32)pip install pyqt5
+
+print("첫번째 %s " %변수명)   print("첫번째 %s 두번째 %s " %(변수명, 변수명2))
+def test(price:int, stock_name:str):
+    print("테스트")
+test(100,"삼성전자")  # 함수실행
+test    # 함수의 메모리만 가져오는것을 의미
+
+
+''''''을 타이핑하면 함수 매개변수에 대한 설명을 작성할수 있게 해준다.
+
+https://github.com/osu3518
+사용자 이름 : ks1937@naver.com  / 비밀번호 : gitsign19371!
+
+* git에서 복사
+* 리모트 리포지토리에서 로컬 리포지토리로 복사하기
+    - remote repository는 인터넷
+    - local repository는 내 PC
