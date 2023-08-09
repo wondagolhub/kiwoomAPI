@@ -35,10 +35,107 @@ test    # 함수의 메모리만 가져오는것을 의미
 
 ''''''을 타이핑하면 함수 매개변수에 대한 설명을 작성할수 있게 해준다.
 
-https://github.com/osu3518
-사용자 이름 : ks1937@naver.com  / 비밀번호 : gitsign19371!
+https://github.com/wondagolhub
+사용자 이름 : wondagol@gmail.com  / 비밀번호 : github19371!
 
-* git에서 복사
-* 리모트 리포지토리에서 로컬 리포지토리로 복사하기
-    - remote repository는 인터넷
-    - local repository는 내 PC
+
+((git  순서))
+1. git 설치  / git --version
+2. github 가입 및 리포지토리 만들기
+3. git config --list
+   [전역 설정]
+    git config --global user.name wondagolhub
+    git config --global user.email wondagol@gmail.com
+   [지역 설정]
+    git config  user.name wondagolhub
+    git config  user.email wondagol@gmail.com
+   [삭제]
+    git config --unset user.name
+    git config --unser user.email
+    git config --unset --global user.name
+    git config --unset --global user.email
+ 4. git status - add, commit
+ 5. git push, clone
+ 6. 리모트 저장소 확인하기 git remote
+
+
+-----------------------------------
+[삭제] git config --global --unset-all gui.recentrepo
+
+* 시스템 설정 /etc/gitconfig 파일  => 경로 : c:\Program Files\Git\etc\gitconfig
+
+* global 설정 ~/.gitconfig 파일   => 경로 : C:\Users\사용자계정\gitconfig
+    git config --global user.name "UsingU"
+    git config --global user.email "sample@example.com"
+* local 설정 .git/config 파일     => 경로 : 현 프로젝트 디렉토리\.git\config
+    git config  user.name "project1"
+    git config  user.email "project1@example.com"
+git config --list 명령을 사용하면 현재 git의 환경설정 값들을 확인 할 수 있습니다.
+사용자 설정을 Global 과 Local을 다 지정 했다면 아래 그림 처럼 user.name과 user.email이 두번 출력이 됩니다.
+
+notepad :
+[gui]
+     recentrepo = C:/one
+     recentrepo = C:/two
+
+
+
+D:\local_github\kiwoomAPI>
+1. 상황
+내 컴퓨터(local)에서 f1.py파일을 수정하였다. 이후 github에 수정한 내용을 push하려고 했지만, 팀원이 f2.py 파일을 올려놨다.
+이 경우 나의 push가 제한된다.
+
+2. pull
+먼저 원격저장소에 f2.py를 내 로컬로 가져와야된다.
+즉 원격저장소를 pull 해야한다.
+git pull {원격저장소별칭 보통 origin이라고 함} master
+
+3. push
+이후에는 push가 가능해지므로 add,commit,push를 해서 내가 반영하고 싶은 수정사항을 반영하면 완성!
+git push {원격저장소 별칭 보통 origin} master
+
+2. 원격 저장소 Repository
+2-1. git remote add : 원격 저장소 추가
+origin 키워드 사용
+
+$ git remote add origin {원격 저장소 주소}
+$ git remote add origin
+https://github.com/chan157/testRepo.git
+<원격 저장소 형식>
+
+https://github.com/chan157/testRepo.git
+웹 호스트 서비스 / 그룹 이름 / 프로젝트 명
+위에서 만든 원격 저장소 https 복사
+
+$ git remote add origin https://github.com/chan157/testRepo.git 수행
+해당 url의 원격 저장소를 origin이라는 이름으로 설정 및 연결
+git remote -v 수행으로 저장소 위치 확인 가능
+
+2-2. git remote show origin : 원격 저장소 확인
+git remote -v
+git remote show origin
+
+
+2-3. 원격 저장소 이름 변경
+원격 저장소 단축 이름을 origin에서 git_name_test로 수정
+$ git remote rename origin git_name_test
+이름 바뀐 것을 확인할 수 있음
+
+2-4. 원격 저장소 삭제
+repo가 변경되거나, 필요 없어진 경우 삭제 가능
+
+$ git remote rm git_name_test
+
+2-5. Git Clone : 기존에 만들어져 있는 프로젝트 가져오기
+기존에 원격 저장소가 있는 경우 받아오기
+
+git clone 기존의 git repository를 복사
+
+원하는 github의 원격 저장소에서 clone 받아오기
+
+https://github.com/chan157/GoStudy.git
+
+$ git clone {원격저장소 주소 https}
+$ git clone https://github.com/chan157/GoStudy.git
+
+
